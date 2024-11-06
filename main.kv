@@ -1,0 +1,244 @@
+#:import threading threading
+
+<MainWid>:
+<ActivityChart>:
+    BoxLayout:
+        id: box
+        size_hint: None, None
+        size: 360, 210
+        pos: 590, 390
+
+
+<LoadFile>:
+    MDTextFieldRect:
+        id: myfile
+        size_hint: None, None
+        size: 220, 40
+        text_hint: "select video file"
+        pos: 120, 580
+ 
+    MDRaisedButton:
+        size_hint: None, None
+        md_bg_color: 0.20784313725490197, 0.20784313725490197, 0.2549019607843137, 1.0
+        elevation: 3
+        size: 200, 40
+        pos: 30, 580
+        text: "Load"
+        on_release: threading.Thread(target=root.select_file).start()
+
+ 
+<PlayerWid>:
+    orientation: 'vertical'
+    padding:0
+    spacing:1
+
+    MDCard:
+        id: my_card
+        size_hint: None, None
+        size: "540dp", "320dp"
+        pos_hint: {'center_x':.32, 'center_y': .55}
+        elevation: 1
+
+        BoxLayout:
+            id:image_layout
+            orientation:'horizontal'
+
+    MDCard:
+        size_hint: None, None
+        size: 540, 60
+        pos_hint: {'center_x':.32, 'center_y': .255555}
+        elevation: 2
+  
+        MDBoxLayout:
+            orientation:'vertical'
+            
+            BoxLayout:
+                orientation:'horizontal'
+                padding:0
+                spacing:1
+                size_hint: (1.0, 0.1)
+                pos_hint: {'center_x':.5, 'center_y': .1}
+               
+                MDSlider:
+                    id: timeSlider
+                    #color: 0, 0, 0, 1
+                    value: 0.0
+                    max: 0.0
+                    min: 0.0
+                    step: 1
+                    #thumb_color_down: 0,0,0,1
+                    on_touch_move: root.sliderTouchMove(args[1])
+                    on_touch_down: root.sliderTouchMove(args[1])
+                    on_touch_up: root.slider_play(args[1])
+                    # on_touch_move: threading.Thread(target=root.sliderTouchMove).start()
+                    # on_touch_down: threading.Thread(target=root.sliderTouchMove).start()
+
+            
+            MDBoxLayout:
+                orientation:'horizontal'
+                pos_hint: {'center_x': .51, 'center_y': .4}
+                MDIconButton:
+                    orientation: 'horizontal'
+                    id: skip_backward
+                    pos_hint: {'center_x': .51, 'center_y': .4}
+                    icon: 'skip-backward'
+                    on_press: root.rewind()
+                    #on_press: threading.Thread(target=root.rewind).start()
+                MDIconButton:
+                    orientation: 'horizontal'
+                    id: plays
+                    pos_hint: {'center_x': .5, 'center_y': .4}
+                    icon: 'play-outline'
+                    on_release: root.play()
+                    #on_release: threading.Thread(target=root.play).start()
+                MDIconButton:
+                    orientation: 'horizontal'
+                    id: skip_forward
+                    pos_hint: {'center_x': .7, 'center_y': .4}
+                    icon: 'skip-forward'
+                    on_release: root.forward()
+
+                    #on_release: threading.Thread(target=root.forward).start()
+                
+                MDSwitch:
+                    size_hint: .03, .1
+                    #size: dp(48), dp(10)
+                    pos_hint: {'center_x': .89, 'center_y': .5}
+                    on_active: root.set_thread_on(*args)
+                 
+                Label:
+                    id: my_labels
+                    size_hint: (0.2, 1)
+                    color: 1,1,1,1
+                    text: "00:00/00:00"
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .05, 'center_y': .15}
+        on_active: root.set_theft(*args)
+
+    MDLabel:
+        text: "Theft"
+        pos_hint: {'center_x': 0.576 , 'center_y': 0.15}
+        color: 1,1,1,1
+
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .05, 'center_y': .1}
+        on_active: root.set_suspicious_behaviour(*args)
+    
+    MDLabel:
+        text: "Fast moving"
+        pos_hint: {'center_x': 0.576 , 'center_y': 0.1}
+        color: 1,1,1,1
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .05, 'center_y': .05}
+        on_active: root.set_facemask(*args)
+
+    MDLabel:
+        text: "Face mask"
+        pos_hint: {'center_x': 0.576 , 'center_y': 0.05}
+        color: 1,1,1,1
+    
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .2, 'center_y': .15}
+        on_active: root.set_unwanted_occurence(*args)
+
+    MDLabel:
+        text: "Animals"
+        pos_hint: {'center_x': 0.726 , 'center_y': 0.15}
+        color: 1,1,1,1
+
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .2, 'center_y': .1}
+        on_active: root.set_arms(*args)
+    
+    MDLabel:
+        text: "Arms"
+        pos_hint: {'center_x': 0.726 , 'center_y': 0.1}
+        color: 1,1,1,1
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .2, 'center_y': .05}
+        on_active: root.set_occupancy(*args)
+
+    MDLabel:
+        text: "Occupancy"
+        pos_hint: {'center_x': 0.726 , 'center_y': 0.05}
+        color: 1,1,1,1
+    
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .34, 'center_y': .15}
+        on_active: root.set_invasion(*args)
+
+    MDLabel:
+        text: "Invasion"
+        pos_hint: {'center_x': 0.868 , 'center_y': 0.15}
+        color: 1,1,1,1
+
+
+    MDCheckbox:
+        size_hint: None, None
+        selected_color: 1,1,1,1
+        size: "48dp", "48dp"
+        pos_hint: {'center_x': .34, 'center_y': .1}
+        on_active: root.set_trespassing(*args)
+    
+    MDLabel:
+        text: "Trespassing"
+        pos_hint: {'center_x': 0.868 , 'center_y': 0.1}
+        color: 1,1,1,1
+
+
+
+    MDLabel:
+        text: "People Count"
+        pos_hint: {'center_x': 1.0 , 'center_y': 0.15}
+        color: 1,1,1,1
+
+
+    MDLabel:
+        text: "In:"
+        pos_hint: {'center_x': 1.0 , 'center_y': 0.1}
+        color: 1,1,1,1
+    
+    MDLabel:
+        id: in
+        text: "0"
+        pos_hint: {'center_x': 1.05 , 'center_y': 0.1}
+        color: 1,1,1,1
+
+    MDLabel:
+        text: "Out:"
+        pos_hint: {'center_x': 1.0 , 'center_y': 0.05}
+        color: 1,1,1,1
+    
+    MDLabel:
+        id:out
+        text: "0"
+        pos_hint: {'center_x': 1.05 , 'center_y': 0.05}
+        color: 1,1,1,1
+
+

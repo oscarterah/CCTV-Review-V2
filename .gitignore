@@ -1,0 +1,12 @@
+*.mp4
+*.onnx
+ui_tests/
+test_model/
+helper_scripts/
+.ropeproject/
+__pycache__/
+build/
+dist
+garden_matplotlib
+kivymd
+myt
