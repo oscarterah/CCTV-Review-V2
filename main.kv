@@ -6,7 +6,7 @@
         id: box
         size_hint: None, None
         size: 360, 210
-        pos: 590, 390
+        pos: 680, 390
 
 
 <LoadFile>:
@@ -31,12 +31,30 @@
     orientation: 'vertical'
     padding:0
     spacing:1
+    
+    MDNavigationRail:
+
+        MDNavigationRailItem:
+            text: "Python"
+            icon: "language-python"
+
+        MDNavigationRailItem:
+            text: "JavaScript"
+            icon: "language-javascript"
+
+        MDNavigationRailItem:
+            text: "CPP"
+            icon: "language-cpp"
+
+        MDNavigationRailItem:
+            text: "Git"
+            icon: "git"
 
     MDCard:
         id: my_card
         size_hint: None, None
         size: "540dp", "320dp"
-        pos_hint: {'center_x':.32, 'center_y': .55}
+        pos_hint: {'center_x':.37, 'center_y': .55}
         elevation: 1
 
         BoxLayout:
@@ -46,7 +64,7 @@
     MDCard:
         size_hint: None, None
         size: 540, 60
-        pos_hint: {'center_x':.32, 'center_y': .255555}
+        pos_hint: {'center_x':.37, 'center_y': .255555}
         elevation: 2
   
         MDBoxLayout:
@@ -116,12 +134,12 @@
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .05, 'center_y': .15}
+        pos_hint: {'center_x': .1, 'center_y': .15}
         on_active: root.set_theft(*args)
 
     MDLabel:
         text: "Theft"
-        pos_hint: {'center_x': 0.576 , 'center_y': 0.15}
+        pos_hint: {'center_x': 0.626 , 'center_y': 0.15}
         color: 1,1,1,1
 
 
@@ -129,36 +147,36 @@
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .05, 'center_y': .1}
+        pos_hint: {'center_x': .1, 'center_y': .1}
         on_active: root.set_suspicious_behaviour(*args)
     
     MDLabel:
         text: "Fast moving"
-        pos_hint: {'center_x': 0.576 , 'center_y': 0.1}
+        pos_hint: {'center_x': 0.626 , 'center_y': 0.1}
         color: 1,1,1,1
 
     MDCheckbox:
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .05, 'center_y': .05}
+        pos_hint: {'center_x': .1, 'center_y': .05}
         on_active: root.set_facemask(*args)
 
     MDLabel:
         text: "Face mask"
-        pos_hint: {'center_x': 0.576 , 'center_y': 0.05}
+        pos_hint: {'center_x': 0.626 , 'center_y': 0.05}
         color: 1,1,1,1
     
     MDCheckbox:
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .2, 'center_y': .15}
+        pos_hint: {'center_x': .25, 'center_y': .15}
         on_active: root.set_unwanted_occurence(*args)
 
     MDLabel:
         text: "Animals"
-        pos_hint: {'center_x': 0.726 , 'center_y': 0.15}
+        pos_hint: {'center_x': 0.776 , 'center_y': 0.15}
         color: 1,1,1,1
 
 
@@ -166,36 +184,36 @@
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .2, 'center_y': .1}
+        pos_hint: {'center_x': .25, 'center_y': .1}
         on_active: root.set_arms(*args)
     
     MDLabel:
         text: "Arms"
-        pos_hint: {'center_x': 0.726 , 'center_y': 0.1}
+        pos_hint: {'center_x': 0.776 , 'center_y': 0.1}
         color: 1,1,1,1
 
     MDCheckbox:
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .2, 'center_y': .05}
+        pos_hint: {'center_x': .25, 'center_y': .05}
         on_active: root.set_occupancy(*args)
 
     MDLabel:
         text: "Occupancy"
-        pos_hint: {'center_x': 0.726 , 'center_y': 0.05}
+        pos_hint: {'center_x': 0.776 , 'center_y': 0.05}
         color: 1,1,1,1
     
     MDCheckbox:
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .34, 'center_y': .15}
+        pos_hint: {'center_x': .39, 'center_y': .15}
         on_active: root.set_invasion(*args)
 
     MDLabel:
         text: "Invasion"
-        pos_hint: {'center_x': 0.868 , 'center_y': 0.15}
+        pos_hint: {'center_x': 0.918 , 'center_y': 0.15}
         color: 1,1,1,1
 
 
@@ -203,42 +221,42 @@
         size_hint: None, None
         selected_color: 1,1,1,1
         size: "48dp", "48dp"
-        pos_hint: {'center_x': .34, 'center_y': .1}
+        pos_hint: {'center_x': .39, 'center_y': .1}
         on_active: root.set_trespassing(*args)
     
     MDLabel:
         text: "Trespassing"
-        pos_hint: {'center_x': 0.868 , 'center_y': 0.1}
+        pos_hint: {'center_x': 0.918 , 'center_y': 0.1}
         color: 1,1,1,1
 
 
 
     MDLabel:
         text: "People Count"
-        pos_hint: {'center_x': 1.0 , 'center_y': 0.15}
+        pos_hint: {'center_x': 1.5 , 'center_y': 0.15}
         color: 1,1,1,1
 
 
     MDLabel:
         text: "In:"
-        pos_hint: {'center_x': 1.0 , 'center_y': 0.1}
+        pos_hint: {'center_x': 1.5 , 'center_y': 0.1}
         color: 1,1,1,1
     
     MDLabel:
         id: in
         text: "0"
-        pos_hint: {'center_x': 1.05 , 'center_y': 0.1}
+        pos_hint: {'center_x': 1.55 , 'center_y': 0.1}
         color: 1,1,1,1
 
     MDLabel:
         text: "Out:"
-        pos_hint: {'center_x': 1.0 , 'center_y': 0.05}
+        pos_hint: {'center_x': 1.5 , 'center_y': 0.05}
         color: 1,1,1,1
     
     MDLabel:
         id:out
         text: "0"
-        pos_hint: {'center_x': 1.05 , 'center_y': 0.05}
+        pos_hint: {'center_x': 1.55 , 'center_y': 0.05}
         color: 1,1,1,1
 
 

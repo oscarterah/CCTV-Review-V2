@@ -43,7 +43,7 @@ from face_detector import FaceDetector
 
 #Window.borderless = True
 
-Config.set('graphics', 'width', '920')
+Config.set('graphics', 'width', '1024')
 Config.set('graphics', 'height', '640')
 Config.set('graphics', 'resizable', False)
 Config.set('input', 'mouse', 'mouse,disable_multitouch')
@@ -396,7 +396,7 @@ class MyTable(FloatLayout):
 
         self.data_tables = MDDataTable(
             size_hint=(0.32, 0.5),
-            pos = (610, 41),
+            pos = (680, 41),
             use_pagination=False,
             rows_num= 500,
             check=False,
@@ -1071,43 +1071,4 @@ class MainApp(MDApp):
 if __name__ == '__main__':
     MainApp().run()
 
-#%%
 
-from kivy.lang import Builder
-
-from kivymd.app import MDApp
-
-KV = '''
-MDBoxLayout:
-
-    MDNavigationRail:
-
-        MDNavigationRailItem:
-            text: "Python"
-            icon: "language-python"
-
-        MDNavigationRailItem:
-            text: "JavaScript"
-            icon: "language-javascript"
-
-        MDNavigationRailItem:
-            text: "CPP"
-            icon: "language-cpp"
-
-        MDNavigationRailItem:
-            text: "Git"
-            icon: "git"
-
-    MDScreen:
-'''
-
-
-class Example(MDApp):
-    def build(self):
-        return Builder.load_string(KV)
-
-
-Example().run()
-
-
-#%%
