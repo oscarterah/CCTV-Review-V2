@@ -15,14 +15,14 @@
         size_hint: None, None
         size: 220, 40
         text_hint: "select video file"
-        pos: 120, 580
+        pos: 175, 580
  
     MDRaisedButton:
         size_hint: None, None
         md_bg_color: 0.20784313725490197, 0.20784313725490197, 0.2549019607843137, 1.0
         elevation: 3
         size: 200, 40
-        pos: 30, 580
+        pos: 100, 580
         text: "Load"
         on_release: threading.Thread(target=root.select_file).start()
 
@@ -35,20 +35,20 @@
     MDNavigationRail:
 
         MDNavigationRailItem:
-            text: "Python"
-            icon: "language-python"
+            text: "Load"
+            icon: "file-upload"
 
         MDNavigationRailItem:
-            text: "JavaScript"
-            icon: "language-javascript"
+            text: "Stream"
+            icon: "view-stream"
 
         MDNavigationRailItem:
-            text: "CPP"
-            icon: "language-cpp"
+            text: "Analytics"
+            icon: "google-analytics"
 
         MDNavigationRailItem:
-            text: "Git"
-            icon: "git"
+            text: "Settings"
+            icon: "hammer-screwdriver"
 
     MDCard:
         id: my_card
