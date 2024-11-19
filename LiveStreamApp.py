@@ -35,5 +35,12 @@ class LiveViewScreen(MDScreen):
         layout.add_widget(content)
         self.add_widget(layout)
     
+    def videoapp(self):
+        self.mainwid.goto_videoapp()
+
+    def liveapp(self):
+        self.mainwid.goto_liveapp()
+
+
     def toggle_view(self, view_type):
         print(f"Switching to {view_type} view")

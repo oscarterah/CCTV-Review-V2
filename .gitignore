@@ -6,6 +6,7 @@ helper_scripts/
 .ropeproject/
 __pycache__/
 build/
+old_kv
 dist
 garden_matplotlib
 kivymd

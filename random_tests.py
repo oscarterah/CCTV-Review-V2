@@ -189,6 +189,7 @@ MDBoxLayout:
         ripple_color_item: app.theme_cls.primary_dark
         on_item_release: app.switch_screen(*args)
         
+        
         MDNavigationRailItem:
             text: "Live View"
             icon: "cctv"

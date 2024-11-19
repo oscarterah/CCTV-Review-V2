@@ -398,7 +398,7 @@ class MyTable(FloatLayout):
 
         self.data_tables = MDDataTable(
             size_hint=(0.32, 0.5),
-            pos = (680, 41),
+            pos = (620, 41),
             use_pagination=False,
             rows_num= 500,
             check=False,
