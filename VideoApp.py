@@ -638,6 +638,13 @@ class PlayerWid(FloatLayout):
         self.start_time_facemask = time.time()
 
 
+
+    def videoapp(self):
+        self.mainwid.videoapp()
+
+    def liveapp(self):
+        self.mainwid.liveapp()
+
     def setup_file(self, filename):
         self.image_capture = cv2.VideoCapture(filename)
         self.sliderSetting()
@@ -1045,7 +1052,7 @@ class PlayerWid(FloatLayout):
 
 
 class MainWid(MDScreen):
-    def __init__(self, **kwargs):
+    def __init__(self,mainwid, **kwargs):
         super().__init__(**kwargs)
         self.yolov5 = Yolo5()
         self.facemask_detector = FaceMaskDetection()
@@ -1060,7 +1067,7 @@ class MainWid(MDScreen):
         self.add_widget(self.player_wid)
         self.add_widget(self.activity_chart)
         self.add_widget(self.load_file)
-        
+        self.mainwid  = mainwid
 
 
 # class MainApp(MDApp):

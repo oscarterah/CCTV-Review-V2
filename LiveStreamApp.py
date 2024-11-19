@@ -10,10 +10,9 @@ from kivymd.uix.toolbar import MDTopAppBar
 from kivymd.uix.label import MDLabel
 
 class LiveViewScreen(MDScreen):
-    def __init__(self, **kwargs):
+    def __init__(self, mainwid, **kwargs):
         super().__init__(**kwargs)
-        self.name = 'live_view'
-        
+        self.mainwid = mainwid 
         # Create layout
         layout = MDBoxLayout(orientation='vertical')
         
