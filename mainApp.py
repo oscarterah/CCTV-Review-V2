@@ -7,14 +7,15 @@ Created on Tue Nov 19 02:39:18 2024
 
 from kivymd.app import MDApp
 from VideoApp import MainWid
-from kivymd.uix.screenmanager import MDScreenManager
+from kivy.uix.screenmanager import ScreenManager, NoTransition
 from LiveStreamApp import LiveViewScreen
 from kivymd.uix.screen import Screen
 
 
-class ScreenManager(MDScreenManager):
+class MyScreenManager(ScreenManager):
     def __init__(self, **kwargs):
         super().__init__()
+        self.transition = NoTransition()
         self.mainwid_screen = MainWid(self)
         self.livestream_screen = LiveViewScreen(self)
         
@@ -54,7 +55,7 @@ class MainApp(MDApp):
 
 
     def build(self):
-        return ScreenManager()
+        return MyScreenManager()
 
 
 if __name__ == '__main__':

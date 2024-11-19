@@ -640,10 +640,10 @@ class PlayerWid(FloatLayout):
 
 
     def videoapp(self):
-        self.mainwid.videoapp()
+        self.mainwid.videoapp_player()
 
     def liveapp(self):
-        self.mainwid.liveapp()
+        self.mainwid.liveapp_player()
 
     def setup_file(self, filename):
         self.image_capture = cv2.VideoCapture(filename)
@@ -1069,6 +1069,11 @@ class MainWid(MDScreen):
         self.add_widget(self.load_file)
         self.mainwid  = mainwid
 
+    def videoapp_player(self):
+        self.mainwid.goto_videoapp()
+
+    def liveapp_player(self):
+        self.mainwid.goto_liveapp()
 
 # class MainApp(MDApp):
 #     def __init__(self, **kwargs):
