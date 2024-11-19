@@ -30,9 +30,7 @@ class MyScreenManager(ScreenManager):
         self.add_widget(wid_liveapp)
         
         self.goto_videoapp()
-#        self.add_widget(self.mainwid_screen)
-#        self.add_widget(self.livestream_screen)
-#        
+    
     def goto_videoapp(self, *args):
         self.current = "VideoApp"
 
@@ -45,14 +43,6 @@ class MainApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.theme_cls.theme_style = "Dark"
-#    def videoapp(self):
-#        self.screen_manager.goto_videoapp()
-#        print("videoapp called")
-#
-#
-#    def liveapp(self):
-#        print("liveapp called")
-
 
     def build(self):
         return MyScreenManager()
