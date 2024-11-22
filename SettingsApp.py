@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 19 03:04:38 2024
+Created on Fri Nov 22 19:59:42 2024
 
 @author: oscar
 """
+
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.toolbar import MDTopAppBar
 from kivymd.uix.label import MDLabel
 
-class LiveViewScreen(MDScreen):
+class SettingsScreen(MDScreen):
     def __init__(self, mainwid, **kwargs):
         super().__init__(**kwargs)
         self.mainwid = mainwid 
@@ -18,7 +19,7 @@ class LiveViewScreen(MDScreen):
         
         # Add toolbar
         toolbar = MDTopAppBar(
-            title="Live Camera Feeds",
+            title="Settings",
             right_action_items=[
                 ["view-grid", lambda x: self.toggle_view("grid")],
                 ["view-list", lambda x: self.toggle_view("list")]
@@ -27,7 +28,7 @@ class LiveViewScreen(MDScreen):
         
         # Add content
         content = MDLabel(
-            text="Live Camera",
+            text="Live Camera Feeds Will Appear Here",
             halign='center'
         )
         

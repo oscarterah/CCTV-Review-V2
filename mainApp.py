@@ -14,6 +14,9 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.screen import Screen
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.navigationrail import MDNavigationRail
+from AnalyticsApp import AnalyticsScreen
+from SettingsApp import SettingsScreen
+
 
 
 class MyRailScreen(MDNavigationRail):
@@ -27,6 +30,12 @@ class MyRailScreen(MDNavigationRail):
 
     def goto_liveapp(self):
         self.mainwid.myscreenmanager.goto_liveapp()
+        
+    def goto_analyticsapp(self):
+        self.mainwid.myscreenmanager.goto_analyticsapp()
+        
+    def goto_settingsapp(self):
+        self.mainwid.myscreenmanager.goto_settingsapp()
 
 
 class BaseScreen(Screen):
@@ -50,18 +59,24 @@ class MyScreenManager(ScreenManager):
         self.transition = NoTransition()
         self.wid_videoapp = Screen(name="VideoApp")
         self.wid_liveapp = Screen(name="LiveApp")
+        self.wid_analytics = Screen(name="AnalyticsApp")
+        self.wid_settings = Screen(name="SettingsApp")
 
 
         mainwid_screen = MainWid(self)
         livestream_screen = LiveViewScreen(self)
+        analytics_screen = AnalyticsScreen(self)
+        settings_screen = SettingsScreen(self)
 
         self.wid_videoapp.add_widget(mainwid_screen)
         self.wid_liveapp.add_widget(livestream_screen)
+        self.wid_analytics.add_widget(analytics_screen)
+        self.wid_settings.add_widget(settings_screen)
         
         self.add_widget(self.wid_videoapp)
         self.add_widget(self.wid_liveapp)
-
-
+        self.add_widget(self.wid_analytics)
+        self.add_widget(self.wid_settings)
         # self.goto_videoapp()
         self.goto_liveapp()
 
@@ -71,7 +86,12 @@ class MyScreenManager(ScreenManager):
 
     def goto_liveapp(self, *args):
         self.current = "LiveApp"
+        
+    def goto_analyticsapp(self, *args):
+        self.current = "AnalyticsApp"
 
+    def goto_settingsapp(self, *args):
+        self.current = "SettingsApp"
 
 
 class MainApp(MDApp):
