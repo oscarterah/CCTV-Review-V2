@@ -445,8 +445,8 @@ class ActivityChart(FloatLayout):
 
         self.data = [5, 6, 6, 7, 9, 3, 1]
         self.fig, self.ax = plt.subplots(subplot_kw=dict(polar=True))
-        self.ax.yaxis.label.set_color('red')
-        self.ax.xaxis.label.set_color('red')
+        self.ax.yaxis.label.set_color('blue')
+        self.ax.xaxis.label.set_color('blue')
         self.fig.patch.set_facecolor((0.0705882352941176, 0.0705882352941176, 0.0705882352941176, 1.0))
         self.angles = np.linspace(0, 2*np.pi, len(self.data), endpoint=False)
         self.plot, = self.ax.plot(self.angles, self.data, linewidth=2, color="white")
@@ -477,7 +477,7 @@ class ActivityChart(FloatLayout):
                 f.remove()
        
         self.plot.set_ydata(self.values)
-        self.fill = self.ax.fill(self.angles, self.data, color="red", alpha=0.25)
+        self.fill = self.ax.fill(self.angles, self.data, color="blue", alpha=0.25)
         self.fig.canvas.draw_idle()
 
 
@@ -865,6 +865,7 @@ class PlayerWid(FloatLayout):
         if self.facemask:
             face_mask_det, pred_prob = self.mainwid.facemask_detector.make_detections(frame_org)
             self.pred_prob = pred_prob
+            frame = face_mask_det
             frame_change = True
 
         if self.arms:
